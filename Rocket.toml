@@ -1,4 +1,4 @@
 
 
 [global.databases.pkpodb2]
-url = "postgresql://zaripovsky:zaripovichebet13@localhost/pkpodb2"
+url = "postgresql://{username}:{password}@localhost/pkpodb2"

@@ -12,7 +12,7 @@ pub struct SearchParameters {
 
 #[post("/getUniversities", data = "<parameters>")]
 pub async fn route(conn: module::DataBase, parameters: Json<SearchParameters>) -> Value {
-  let result = conn.run(move |c| module::get_universities(c,SortType::try_from(parameters.sort_type).unwrap())).await;
+  let result = conn.run(move |c| module::DataProcessor::get_universities(c,SortType::try_from(parameters.sort_type).unwrap())).await;
   match result{
     Ok(ok)=> {
         let value = rocket::serde::json::to_value(&ok);
